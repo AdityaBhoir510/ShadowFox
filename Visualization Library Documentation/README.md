@@ -190,37 +190,6 @@ __Output:__
 
 ![pie chart](Assets/Img/pie%20chart.png)
 
-### 8. Violin Plot
-__Description__: Combines aspects of a box plot and a density plot.  <br>
-**Use Case**: Visualizing data distribution and probability density.
-
-__Code Snippet:__
-```py
-# violin plot
-
-plt.style.use('_mpl-gallery')
-
-# make data:
-np.random.seed(10)
-D = np.random.normal((3, 5, 4), (0.75, 1.00, 0.75), (200, 3))
-
-# plot:
-fig, ax = plt.subplots()
-
-vp = ax.violinplot(D, [2, 4, 6], widths=2,
-                   showmeans=False, showmedians=False, showextrema=False)
-# styling:
-for body in vp['bodies']:
-    body.set_alpha(0.9)
-ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
-       ylim=(0, 8), yticks=np.arange(1, 8))
-
-plt.show()
-```
-__Output:__
-
-![violin chart](Assets/Img/violin%20chart.png)
-
 ## 3D plots
 ### 1. 3D Bar Graph
 __Description__: Displays data as 3D bars in a three-dimensional space. <br>
@@ -295,31 +264,6 @@ plt.show()
 __Output:__
 
 ![surface plot](Assets/Img/surface%20plot.png)
-
-### 4. Wireframe Graph
-__Description__: A skeletal representation of a 3D surface. <br>
-**Use Case**: Analyzing structural outlines in data.
-
-__Code Snippet:__
-```py
-# wireframe plot 
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-x = np.linspace(-5, 5, 50)
-y = np.linspace(-5, 5, 50)
-x, y = np.meshgrid(x, y)
-z = np.sin(np.sqrt(x**2 + y**2))
-
-ax.plot_wireframe(x, y, z, color='blue')
-ax.set_title('Wireframe Plot')
-plt.show()
-```
-__Output:__
-
-![wireframe plot](Assets/Img/wireframe.png)
-
 
 # 🐼Pandas
 
