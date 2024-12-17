@@ -1,15 +1,15 @@
 # Visualization Library Documentation
 
-This guide provides an overview of two popular Python visualization libraries, Matplotlib and Plotly. It explores the variety of graphs they can generate and includes practical examples with code snippets. The document also compares the strengths and weaknesses of these libraries to help users choose the right tool for their needs.
+This guide provides an overview of two popular Python visualization libraries, Matplotlib and Pandas. It explores the variety of graphs they can generate and includes practical examples with code snippets. The document also compares the strengths and weaknesses of these libraries to help users choose the right tool for their needs.
 
 ## Table of content
 1. [Visualization Library](#visualization-library-documentation)
 2. [Matplotlib](#matplotlib)
     1. [Introduction](#matplotlib)
     2. [Type's of Graph](#types-of-graph-offered-by-matplotlib)
-3. [Plotly](#plotly)
-    1. [Introduction]()
-    2. [Type's of Graph]()
+3. [Pandas](#pandas)
+    1. [Introduction](#pandas)
+    2. [Type's of Graph](#types-of-graph-offered-by-pandas)
 4. [Comparison](#comparison)
 
 ---------------------------
@@ -65,7 +65,7 @@ __Output:__
 
 ### 2. Bar Chart
 __Description__: Represents data using rectangular bars. <br>
-**Use Case**: omparing discrete categories.
+**Use Case**: Comparing discrete categories.
 
 __Code Snippet:__
 ```py
@@ -321,32 +321,123 @@ __Output:__
 ![wireframe plot](Assets/Img/wireframe.png)
 
 
-# 📈plotly
+# 🐼Pandas
 
-Plotly is a modern visualization library that excels in creating interactive and web-based plots. Its user-friendly API and extensive interactivity make it a popular choice for dashboards and presentations.
+Pandas is primarily a data analysis library that includes built-in plotting functions for quick and easy visualizations. It utilizes Matplotlib under the hood.
 
-Plotly offers interactive and web-ready visualizations that make it ideal for dynamic and engaging presentations. It seamlessly integrates with Dash, allowing users to create web applications effortlessly. The library also supports advanced visualizations, including 3D plots, and provides an easy mechanism to export plots to HTML for embedding in web pages.
+Pandas library features simple syntax for quick plots directly from DataFrames and Series.
 
-### graph
-> examples
->>A DESCRIPTION, ITS USE CASE, AND A CODE SNIPPET
-1.
-2.
-3.
-4.
-5.
+Ideal for exploratory data analysis (EDA).
 
+Integrates seamlessly with Pandas data structures.
+
+This library is best for data exploration, quick data analysis visualizations, and lightweight plotting without much customization.
+
+Pandas library can be install in python using ```pip```
+```sh
+pip install pandas
+```
+
+## Type's of Graph offered by Pandas
+
+### 1. Line Plot
+
+**Description:**  Quickly generate a line plot directly from a Pandas DataFrame or Series.
+
+**Use Case:** Plotting trends and time series data.
+
+__Code Snippet:__
+```py
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {'X': [1, 2, 3, 4, 5], 'Y': [2, 4, 6, 8, 10]}
+df = pd.DataFrame(data)
+
+# Create line plot
+df.plot(x='X', y='Y', kind='line', title="Pandas Line Plot")
+
+# here as pandas utilizes Matplotlib under the hood.
+# plt.show() ensures that the graph is rendered perfectly.
+
+plt.show()
+```
+__Output:__
+![pd line plot](Assets/Img/pd%20line%20plot.png)
+
+### 2. Bar Chart
+
+**Description:** Create a bar chart from categorical data.
+
+**Use Case:** Comparing values across categories.
+
+__Code Snippet:__
+```py
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {'Categories': ['A', 'B', 'C', 'D'], 'Values': [5, 7, 3, 8]}
+df = pd.DataFrame(data)
+
+# Create bar chart
+df.plot(x='Categories', y='Values', kind='bar', title="Pandas Bar Chart")
+plt.show()
+```
+
+__Output:__
+![pd bar chart](Assets/Img/pd%20bar%20chart.png)
+
+### 3. Histogram
+
+**Description:** Generate histograms to visualize distributions.
+
+**Use Case:** Exploring data distributions.
+
+__Code Snippet:__
+```py
+import pandas as pd
+import numpy as np
+
+# Data
+data = {'Values': np.random.randn(1000)}
+df = pd.DataFrame(data)
+
+# Create histogram
+df['Values'].plot(kind='hist', bins=30, title="Pandas Histogram")
+plt.show()
+```
+__Output:__
+![pd line plot](Assets/Img/pd%20histogram.png)
 
 ## Comparison
 
-Matplotlib 
+### Matplotlib
 
-Pros- 
+MatPlotlib is Highly customizable which can use to create complex and detailed visualizations. 
 
-Data visualization is a key step in data analysis. It allows users to understand data trends and solve business problems more efficiently.
+It supports wide variety of graph with maximum customization options.
 
-Cons- 
+It is Flexible with multiple backends and extensions.
 
+There are also some cons with matplotlib, as the learning curve of this library is much steeper for beginners. This library requires more line of code for simple plots. limited interactivity in default setup.
 
-- strengths
-- weaknesses
+### Pandas
+
+Whereas, pandas library is much simple and easy to learn and plot. it can do plotting directly from DataFrames and Series.
+
+It is quick, which makes it an excellent choice for data exploration.
+
+It uses Matplotlib under the hood, which allowing further customization to basic plots.
+
+But not much customization options as comparied to matplotlib. It is less efficient for large and complex visualization. It has Fewer graph types available compared to Matplotlib.
+
+## Conclusion
+
+Matplotlib is ideal for creating detailed and highly customizable visualizations, suitable for presentations and reports.
+
+Pandas is perfect for quick, simple visualizations during data exploration.
+
+Both libraries complement each other, and Pandas can leverage Matplotlib's capabilities for further customization.
+
